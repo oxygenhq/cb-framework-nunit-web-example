@@ -41,6 +41,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Appium.Net, Version=4.3.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Appium.WebDriver.4.3.1\lib\net45\Appium.Net.dll</HintPath>
+    </Reference>
     <Reference Include="AspectInjector.Broker, Version=2.7.3.0, Culture=neutral, PublicKeyToken=a29e12442a3d3609, processorArchitecture=MSIL">
       <HintPath>packages\AspectInjector.2.7.3\lib\netstandard2.0\AspectInjector.Broker.dll</HintPath>
     </Reference>
@@ -50,8 +53,8 @@
     <Reference Include="CloudBeat.Commons, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\CloudBeat.Commons.2.0.1\lib\net462\CloudBeat.Commons.dll</HintPath>
     </Reference>
-    <Reference Include="CloudBeat.Frameworks.NUnit, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\CloudBeat.Frameworks.NUnit.2.0.1\lib\net462\CloudBeat.Frameworks.NUnit.dll</HintPath>
+    <Reference Include="CloudBeat.Frameworks.NUnit, Version=2.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\CloudBeat.Frameworks.NUnit.2.0.2\lib\net462\CloudBeat.Frameworks.NUnit.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
