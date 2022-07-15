@@ -110,8 +110,19 @@ namespace NUnitWebExample.Tests
                 var link3 = driver.FindElement(By.PartialLinkText("Yellow"));
                 link3.Click();
             });
-            var link4 = driver.FindElement(By.Id("layered_id_attribute_group_16"));
-            link4.Click();
+
+            // fail one of the test on purpose
+            if (c == 6)
+            {
+                // this will fail
+                var link4 = driver.FindElement(By.Id("layered_id_attribute_group_7777"));
+                link4.Click();
+            }
+            else
+            {
+                var link4 = driver.FindElement(By.Id("layered_id_attribute_group_16"));
+                link4.Click();
+            }
         }
 
         static List<string> ExampleSource()
