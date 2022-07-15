@@ -16,6 +16,7 @@ namespace NUnitWebExample.Tests
 		}
 
 		[OneTimeSetUp]
+		[CbNUnitHook]
 		public void Init()
 		{
 			//Debugger.Launch();
@@ -24,6 +25,7 @@ namespace NUnitWebExample.Tests
 		}
 
 		[OneTimeTearDown]
+		[CbNUnitHook]
 		public void Cleanup()
 		{
 			if (driver != null)

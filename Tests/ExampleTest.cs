@@ -2,6 +2,7 @@
 using CloudBeat.Frameworks.NUnit.Attributes;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using System.Collections.Generic;
 using System.Reflection;
 
 namespace NUnitWebExample.Tests
@@ -86,7 +87,7 @@ namespace NUnitWebExample.Tests
         {
         }
 
-        /*
+        
         static object[] Source =
         {
             new object[] { 12, 3, 4 },
@@ -97,7 +98,20 @@ namespace NUnitWebExample.Tests
         public void Test4a(int a, int b, int c)
         {
             TestContext.Progress.WriteLine("Executing method: " + MethodBase.GetCurrentMethod().Name);
-            var logo = driver.FindElement(MobileBy.Id("com.niksoftware.snapseed:id/logo_view"));
+            var linkText = "DRESSES";
+            driver.Navigate().GoToUrl(SITE_URL);
+            var link = driver.FindElement(By.PartialLinkText(linkText));
+            link.Click();
+            CbNUnit.Step("customStep", () =>
+            {
+                var link2 = driver.FindElement(By.Id("layered_category_11"));
+                link2.Click();
+
+                var link3 = driver.FindElement(By.PartialLinkText("Yellow"));
+                link3.Click();
+            });
+            var link4 = driver.FindElement(By.Id("layered_id_attribute_group_16"));
+            link4.Click();
         }
 
         static List<string> ExampleSource()
@@ -109,8 +123,8 @@ namespace NUnitWebExample.Tests
         public void Test4b(string ExampleSource)
         {
             TestContext.Progress.WriteLine("Executing method: " + MethodBase.GetCurrentMethod().Name);
-            var logo = driver.FindElement(MobileBy.Id("com.niksoftware.snapseed:id/logo_view"));
-        }*/
+
+        }
 
         [Test(Description = "Test ordered (order 1)"), Category("Ordered"), Order(1)]
         public void Test5()
