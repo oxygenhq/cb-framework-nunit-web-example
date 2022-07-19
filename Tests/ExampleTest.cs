@@ -125,6 +125,63 @@ namespace NUnitWebExample.Tests
             }
         }
 
+        static TestObject[] TestObjectMethod()
+        {
+            return new[] { new TestObject(1, 2), new TestObject(1, 3) };
+        }
+
+        public class TestObject
+        {
+            public int a { get; set; }
+            public int b { get; set; }
+
+            public TestObject()
+            {
+            }
+
+            public TestObject(int a, int b)
+            {
+                this.a = a;
+                this.b = b;
+            }
+
+            public override string ToString()
+            {
+                return string.Format("{0};{1}", a, b);
+            }
+        }
+
+        [Test(Description = "Test: Test + TestCaseSource object"), Order(10), Category("test case source main cat")]
+        [TestCaseSource("TestObjectMethod", Category = "test case source category")]
+        public void Test4b(TestObject paramz)
+        {
+            TestContext.Progress.WriteLine("Executing method: " + MethodBase.GetCurrentMethod().Name);
+            driver.Navigate().GoToUrl(SITE_URL);
+            var link = driver.FindElement(By.PartialLinkText("DRESSES"));
+            link.Click();
+            CbNUnit.Step("customStep", () =>
+            {
+                var link2 = driver.FindElement(By.Id("layered_category_11"));
+                link2.Click();
+
+                var link3 = driver.FindElement(By.PartialLinkText("Yellow"));
+                link3.Click();
+            });
+
+            // fail one of the test on purpose
+            if (paramz.b == 2)
+            {
+                // this will fail
+                var link4 = driver.FindElement(By.Id("layered_id_attribute_group_7777"));
+                link4.Click();
+            }
+            else
+            {
+                var link4 = driver.FindElement(By.Id("layered_id_attribute_group_16"));
+                link4.Click();
+            }
+        }
+
         static List<string> ExampleSource()
         {
             return new List<string>();
